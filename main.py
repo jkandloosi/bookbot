@@ -6,14 +6,14 @@ def main():
     #print(wordCount)
     #print(letterCount)
     
-    chars_sorted_list = chars_dict_to_sorted_list(letterCount)
-    print(chars_sorted_list)
+    charsSortedList = chars_dict_to_sorted_list(letterCount)
+    print(charsSortedList)
 
     print(f"--- Begin report of {book_path} ---")
     print(f"{wordCount} words found in the document")
     print()
 
-    for item in chars_sorted_list:
+    for item in charsSortedList:
         if not item["char"].isalpha():
             continue
         print(f"The '{item['char']}' character was found {item['num']} times")
@@ -47,11 +47,11 @@ def letter_count(book):
 def sort_on(dict):
     return dict["num"]
 
-def chars_dict_to_sorted_list(num_chars_dict):
-    sorted_list = []
-    for ch in num_chars_dict:
-        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
-    sorted_list.sort(reverse=True, key=sort_on)
-    return sorted_list
+def chars_dict_to_sorted_list(dict):
+    sortedList = []
+    for ch in dict:
+        sortedList.append({"char": ch, "num": dict[ch]})
+    sortedList.sort(reverse=True, key=sort_on)
+    return sortedList
 
 main()
